@@ -59,7 +59,7 @@
             <div class="text" id="outText">Someone is currently out.</div>
             <div class="timer" id="timer">00:00:00</div>
             <div class="button">
-                <a href="https://egc.64bit.kr/signin.html" id="signinButton">
+                <a href="https://signdeck.egc.64bit.kr/signin.html" id="signinButton">
                     <button style="background-color: green; color: white; padding: 15px 30px; border: none; border-radius: 5px; font-size:25px;">Sign in</button>
                 </a>
             </div>
@@ -98,7 +98,7 @@
             const signinButton = document.getElementById('signinButton');
             const nameQueryParamForButton = getNameQueryParam();
             if (nameQueryParamForButton) {
-                signinButton.href = `https://egc.64bit.kr/signin.html?name=${encodeURIComponent(nameQueryParamForButton)}`;
+                signinButton.href = `https://signdeck.egc.64bit.kr/signin.html?name=${encodeURIComponent(nameQueryParamForButton)}`;
             }
         });
     </script>
