@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Lexend&display=swap');
+    </style>
+    <title>D110 Sign out/in</title>
+    <!-- Prevent search engines from indexing this page -->
+    <meta name="robots" content="noindex">
+    <!-- DO Redirect to initial page after 2 minutes -->
+    <meta http-equiv="refresh" content="120;url=https://signdeck.hamiltonhigh.tech/index.html">
+    <style>
+        * {
+            font-family: 'Lexend', sans-serif;
+			
+        }
+                
+        h1 {
+            margin-bottom: 20px;
+        }
+        
+        button {
+            display: inline-block;
+            border-radius: 15px;
+            background-color: green;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 20px;
+            margin-top: 7px;
+        }
+        
+         form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Lexend', sans-serif;
+    width: 100%;
+  }
+  input[type="text"] {
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: white;
+  }
+  input[type="submit"] {
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  
+  
+  .form-container {
+  margin: 0 auto 20px auto;
+  width: 60%;
+  width: 500px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f2f2f2;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  
+}
+body {
+position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  
+
+}
+
+
+
+        
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center;">Complete the form below</h1>
+    
+    <div class="form-container">
+        <form action="https://script.google.com/macros/s/AKfycbzuhgKU-KiFlEHmlqL-ZfSt5rT076Y_C3XQMVBhgd1iyGB1ImfWEclH0XFmyaWPzW8/exec" method="POST" target="hidden_iframe" onsubmit="if(this.submitted) return false; this.submitted = true; setTimeout(function(){window.location.href='https://signdeck.hamiltonhigh.tech/out.html?name=' + encodeURIComponent(document.getElementsByName('Name')[0].value);}, 1000);">
+            <input name="Name" type="text" placeholder="Full Name" required>
+            <input name="Destination" type="text" placeholder="Destination" value="Bathroom" required>
+            <button type="submit">Next</button>
+        </form>
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+    </div>
+
+    <script>
+        // Function that attempts to request a screen wake lock
+        const requestWakeLock = async () => {
+            let wakeLock = null;
+            try {
+                wakeLock = await navigator.wakeLock.request('screen');
+                wakeLock.addEventListener('release', () => {
+                    console.log('Screen Wake Lock was released');
+                });
+                console.log('Screen Wake Lock active');
+            } catch (err) {
+                console.error(`${err.name}, ${err.message}`);
+            }
+        };
+        // Request a screen wake lock…
+        requestWakeLock();
+    </script>
+</body>
+</html>
